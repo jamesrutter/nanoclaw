@@ -90,7 +90,10 @@ export class GmailChannel implements Channel {
       this.userEmail = profile.data.emailAddress || '';
       logger.info({ email: this.userEmail }, 'Gmail channel connected');
     } catch (err) {
-      logger.warn({ err }, 'Gmail API verification failed — channel disabled. Ensure the Gmail API is enabled in your GCP project.');
+      logger.warn(
+        { err },
+        'Gmail API verification failed — channel disabled. Ensure the Gmail API is enabled in your GCP project.',
+      );
       this.gmail = null;
       this.oauth2Client = null;
       return;
