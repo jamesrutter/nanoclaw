@@ -487,8 +487,12 @@ async function runQuery(
           },
         },
         gmail: {
-          command: 'npx',
-          args: ['-y', '@gongrzhe/server-gmail-autoauth-mcp'],
+          command: 'gmail-mcp',
+          args: [],
+          env: {
+            no_proxy: 'googleapis.com,accounts.google.com',
+            NO_PROXY: 'googleapis.com,accounts.google.com',
+          },
         },
       },
       hooks: {
